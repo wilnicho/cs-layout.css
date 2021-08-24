@@ -30,13 +30,13 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 
 ```html static
 <div class="layout-desktop">
-	<div class="grid-row">
-		<div class="grid-cell">row # 1</div>
-		<div class="grid-cell">row # 2</div>
-		<div class="grid-cell">row # 3</div>
-		<div class="grid-cell">row # 4</div>
-		<div class="grid-cell">row # 5</div>
-	</div>
+    <div class="grid-row">
+        <div class="grid-cell">row # 1</div>
+        <div class="grid-cell">row # 2</div>
+        <div class="grid-cell">row # 3</div>
+        <div class="grid-cell">row # 4</div>
+        <div class="grid-cell">row # 5</div>
+    </div>
 </div>
 ```
 
@@ -44,13 +44,13 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 
 ```html static
 <div class="layout-desktop">
-	<div class="grid-col">
-		<div class="grid-cell">col # 1</div>
-		<div class="grid-cell">col # 2</div>
-		<div class="grid-cell">col # 3</div>
-		<div class="grid-cell">col # 4</div>
-		<div class="grid-cell">col # 5</div>
-	</div>
+    <div class="grid-col">
+        <div class="grid-cell">col # 1</div>
+        <div class="grid-cell">col # 2</div>
+        <div class="grid-cell">col # 3</div>
+        <div class="grid-cell">col # 4</div>
+        <div class="grid-cell">col # 5</div>
+    </div>
 </div>
 ```
 
@@ -58,11 +58,11 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 
 ```html static
 <div class="layout-desktop">
-	<div class="grid-row">
-		<div class="grid-cell-auto">header</div>
-		<div class="grid-cell">main</div>
-		<div class="grid-cell-auto">footer</div>
-	</div>
+    <div class="grid-row">
+        <div class="grid-cell-auto">header</div>
+        <div class="grid-cell">main</div>
+        <div class="grid-cell-auto">footer</div>
+    </div>
 </div>
 ```
 
@@ -70,16 +70,16 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 
 ```html static
 <div class="layout-desktop">
-	<div class="grid-row">
-		<div class="grid-cell-auto">header</div>
-		<div class="grid-cell">
-			<div class="grid-col">
-				<div class="grid-cell-auto">aside</div>
-				<div class="grid-cell">main</div>
-			</div>
-		</div>
-		<div class="grid-cell-auto">footer</div>
-	</div>
+    <div class="grid-row">
+        <div class="grid-cell-auto">header</div>
+        <div class="grid-cell">
+            <div class="grid-col">
+                <div class="grid-cell-auto">aside</div>
+                <div class="grid-cell">main</div>
+            </div>
+        </div>
+        <div class="grid-cell-auto">footer</div>
+    </div>
 </div>
 ```
 
@@ -87,21 +87,21 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 
 ```html static
 <div class="layout-desktop">
-	<div class="grid-row">
-		<div class="grid-cell-auto">header</div>
-		<div class="grid-cell-auto">nav</div>
-		<div class="grid-cell">
-			<div class="grid-col">
-				<div class="grid-cell-auto">aside</div>
-				<div class="grid-cell">
-					<div class="grid-row">
-						<div class="grid-cell">main</div>
-						<div class="grid-cell-auto">footer</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="grid-row">
+        <div class="grid-cell-auto">header</div>
+        <div class="grid-cell-auto">nav</div>
+        <div class="grid-cell">
+            <div class="grid-col">
+                <div class="grid-cell-auto">aside</div>
+                <div class="grid-cell">
+                    <div class="grid-row">
+                        <div class="grid-cell">main</div>
+                        <div class="grid-cell-auto">footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 ```
 
