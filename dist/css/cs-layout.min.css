@@ -1,0 +1,11 @@
+/**
+ * 
+ * cs-layout v0.5
+ *
+ * https://github.com/wilnicho/cs-layout.css
+ * 
+ * copyright (c) 2021 wilfredo nina choquetarqui
+ * 
+ */
+
+.layout-mobile{position:absolute;left:0;top:0;bottom:0;right:0}.layout-mobile .grid-col,.layout-mobile .grid-row{display:flex;flex:1 auto;height:100%}.layout-mobile .grid-row{flex-direction:column}.layout-mobile .grid-col{flex-direction:row}.layout-mobile .grid-col>.grid-cell-auto,.layout-mobile .grid-row>.grid-cell-auto{flex:0 auto}.layout-mobile .grid-col>.grid-cell,.layout-mobile .grid-row>.grid-cell{flex:1 auto}.layout-mobile .grid-col>.grid-cell,.layout-mobile .grid-row>.grid-cell{overflow-x:hidden;overflow-y:auto}.layout-mobile.mh-240{min-height:240px}.layout-mobile.mh-320{min-height:320px}.layout-mobile.mh-480{min-height:480px}.layout-mobile.mh-720{min-height:720px}@media(min-width:768px){.layout-desktop{position:absolute;left:0;top:0;bottom:0;right:0}.layout-desktop .grid-col,.layout-desktop .grid-row{display:flex;flex:1 auto;height:100%}.layout-desktop .grid-row{flex-direction:column}.layout-desktop .grid-col{flex-direction:row}.layout-desktop .grid-col>.grid-cell-auto,.layout-desktop .grid-row>.grid-cell-auto{flex:0 auto}.layout-desktop .grid-col>.grid-cell,.layout-desktop .grid-row>.grid-cell{flex:1 auto}.layout-desktop .grid-col>.grid-cell,.layout-desktop .grid-row>.grid-cell{overflow-x:hidden;overflow-y:auto}.layout-desktop.mh-240{min-height:240px}.layout-desktop.mh-320{min-height:320px}.layout-desktop.mh-480{min-height:480px}.layout-desktop.mh-720{min-height:720px}}
