@@ -1,5 +1,7 @@
 cs-layout.css
-==============
+=============
+
+Librería ligera basada en Flexbox para la construcción de interfaces de pantalla completa.
 
 Proyecto mantenido por `Wilfredo Nina Choquetarqui`.
 
@@ -7,96 +9,98 @@ Documentación y ejemplos [aquí](https://wilnicho.github.io/cs-layout.css).
 
 ¿Qué es cs-layout.css?
 ----------------------
-Es una complemento `CSS` que ofrece un sistema de diseño responsivo basado en cuadrículas que facilita la creación de páginas web, el manejo de este complemento es similar al que `Bootstrap` tiene con su sistema de grillas, con filas y columnas, pero con la ventaja de ser no sólo flexible con el ancho de la pantalla sino que también con el alto, trabajando así a pantalla completa.
+Es una librería `CSS` ultra-ligera basada en `Flexbox`, diseñada específicamente para la construcción de interfaces de pantalla completa `Viewport-Locked UIs`. A diferencia de los frameworks tradicionales, ofrece un sistema bidireccional que permite un control total sobre el flujo horizontal y vertical, eliminando el scroll global de la ventana. Ideal para desarrolladores que buscan crear interfaces adaptables `Desktop/Mobile` que se ajusten perfectamente al marco de la pantalla sin complicaciones de cálculos manuales de altura.
 
-¿Qué necesito?
---------------
-Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar previamente.
+¿Cómo se implementa?
+--------------------
+Descarga e incluye el archivo en el `<head>` de tu documento HTML:
 
 ```html static
-<link rel="stylesheet" href="cs-layout.css">
+<link rel="stylesheet" href="cs-layout.min.css">
 ```
+
+La librería utiliza tres componentes clave para construir cualquier interfaz:
 
 | Clase | Descripción |
 | - | - |
-| `.layout-desktop` | El uso de esta clase indica que el comportamiento del diseño será responsivo. |
-| `.layout-mobile` | El uso de esta clase indica que el comportamiento del diseño no será responsivo. |
-| `.grid-row` | El uso de esta clase indica la creación de una fila. |
-| `.grid-col` | El uso de esta clase indica la creación de una columna. |
-| `.grid-cell` | El uso de esta clase indica la creación de una celda con un alto o un ancho flexible según el contenedor padre. |
-| `.grid-cell-auto` | El uso de esta clase indica la creación de una celda con un alto o un ancho automático según el contenedor padre. |
+| `.g-container` | El marco principal, por defecto ocupa todo el ancho y alto disponible. |
+| `.g-row` `.g-col` | Define la dirección del flujo: vertical - filas u horizontal - columnas. |
+| `.g-cell` | El bloque de contenido, se expande automáticamente para llenar el espacio sobrante. |
+| `.g-cell-auto` | Bloque con tamaño fijo basado en su contenido, ideal para headers o footers. |
+| `.g-static` | Modo Estático, desactiva el comportamiento responsivo para mantener el layout fijo en móviles, este modo no se hereda a las clases hijos asi que debe ser usado de la siguiente manera: &lt;div class="g-container g-static"&gt; &lt;div class="g-row g-static"&gt; &lt;div class="g-col g-static"&gt; |
+| `.g-240` `.g-320` `.g-480` `.g-720` | Altura fija de 240px, 320px, 480px y 720px, se usan para definir un alto mínimo para la interfaz antes de que aparezca el scroll, debe ser usado solo de la siguiente manera: &lt;div class="g-container g-static g-480"&gt; &lt;div class="g-container g-480"&gt; |
 
-### Ejemplo # 1
+Ejemplos prácticos
+--------------------
+A continuación, se presentan las estructuras más comunes resueltas con cs-layout. Copia y pega estas estructuras HTML para iniciar tu proyecto.
+
+### Ejemplo # 1 (Diseño con solo filas)
 
 ```html static
-<div class="layout-desktop">
-    <div class="grid-row">
-        <div class="grid-cell">row # 1</div>
-        <div class="grid-cell">row # 2</div>
-        <div class="grid-cell">row # 3</div>
-        <div class="grid-cell">row # 4</div>
-        <div class="grid-cell">row # 5</div>
+<div class="g-container">
+    <div class="g-row">
+        <div class="g-cell">row # 1</div>
+        <div class="g-cell">row # 2</div>
+        <div class="g-cell">row # 3</div>
     </div>
 </div>
 ```
 
-### Ejemplo # 2
+### Ejemplo # 2 (Diseño con solo columnas)
 
 ```html static
-<div class="layout-desktop">
-    <div class="grid-col">
-        <div class="grid-cell">col # 1</div>
-        <div class="grid-cell">col # 2</div>
-        <div class="grid-cell">col # 3</div>
-        <div class="grid-cell">col # 4</div>
-        <div class="grid-cell">col # 5</div>
+<div class="g-container">
+    <div class="g-col">
+        <div class="g-cell">row # 1</div>
+        <div class="g-cell">row # 2</div>
+        <div class="g-cell">row # 3</div>
     </div>
 </div>
 ```
 
-### Ejemplo # 3
+### Ejemplo # 3 (Diseño básico de aplicación)
 
 ```html static
-<div class="layout-desktop">
-    <div class="grid-row">
-        <div class="grid-cell-auto">header</div>
-        <div class="grid-cell">main</div>
-        <div class="grid-cell-auto">footer</div>
+<div class="g-container">
+    <div class="g-row">
+        <div class="g-cell-auto">header</div>
+        <div class="g-cell">main</div>
+        <div class="g-cell-auto">footer</div>
     </div>
 </div>
 ```
 
-### Ejemplo # 4
+### Ejemplo # 4 (Diseño simple con menú lateral)
 
 ```html static
-<div class="layout-desktop">
-    <div class="grid-row">
-        <div class="grid-cell-auto">header</div>
-        <div class="grid-cell">
-            <div class="grid-col">
-                <div class="grid-cell-auto">aside</div>
-                <div class="grid-cell">main</div>
+<div class="g-container">
+    <div class="g-row">
+        <div class="g-cell-auto">header</div>
+        <div class="g-cell">
+            <div class="g-col">
+                <div class="g-cell-auto">aside</div>
+                <div class="g-cell">main</div>
             </div>
         </div>
-        <div class="grid-cell-auto">footer</div>
+        <div class="g-cell-auto">footer</div>
     </div>
 </div>
 ```
 
-### Ejemplo # 5
+### Ejemplo # 5 (Diseño robusto con menú lateral y barra de navegación)
 
 ```html static
-<div class="layout-desktop">
-    <div class="grid-row">
-        <div class="grid-cell-auto">header</div>
-        <div class="grid-cell-auto">nav</div>
-        <div class="grid-cell">
-            <div class="grid-col">
-                <div class="grid-cell-auto">aside</div>
-                <div class="grid-cell">
-                    <div class="grid-row">
-                        <div class="grid-cell">main</div>
-                        <div class="grid-cell-auto">footer</div>
+<div class="g-container">
+    <div class="g-row">
+        <div class="g-cell-auto">header</div>
+        <div class="g-cell-auto">nav</div>
+        <div class="g-cell">
+            <div class="g-col">
+                <div class="g-cell-auto">aside</div>
+                <div class="g-cell">
+                    <div class="g-row">
+                        <div class="g-cell">main</div>
+                        <div class="g-cell-auto">footer</div>
                     </div>
                 </div>
             </div>
@@ -105,9 +109,43 @@ Incluya dentro de su proyecto el archivo `cs-layout.css` que debe descargar prev
 </div>
 ```
 
-### Integración con "jq-collapse.js"
+### Ejemplo # 6 (Diseño robusto anidado)
 
-Como habrá visto el complemento es muy fácil de usar y personalizar, además fue desarrollado pensando en la integración con [jq-collapse.js](https://wilnicho.github.io/jq-collapse.js) que hará mas interactiva la plantilla que diseñe, a continuación un ejemplo de su uso.
+```html static
+<div class="g-container">
+    <div class="g-row">
+        <div class="g-cell-auto header">header 1</div>
+        <div class="g-cell-auto nav">nav 1</div>
+        <div class="g-cell">
+            <div class="g-col">
+                <div class="g-cell-auto aside">aside 1</div>
+                <div class="g-cell">
+                    <div class="g-row">
+                        <div class="g-cell main" style="padding: 30px;">
+                            <div class="g-row">
+                                <div class="g-cell-auto header">header 2</div>
+                                <div class="g-cell-auto nav">nav 2</div>
+                                <div class="g-cell">
+                                    <div class="g-col">
+                                        <div class="g-cell-auto aside">aside 2</div>
+                                        <div class="g-cell">
+                                            <div class="g-row">
+                                                <div class="g-cell main">main 2</div>
+                                                <div class="g-cell-auto footer">footer 2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="g-cell-auto footer">footer 1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Licencia
 --------

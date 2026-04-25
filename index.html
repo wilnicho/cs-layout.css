@@ -8,18 +8,20 @@
 		<meta name="theme-color" content="#6c757d">
 		<title>cs-layout.css</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/prism.min.css">
+		<link rel="stylesheet" href="css/prism-tomorrow.min.css">
+		<link rel="stylesheet" href="css/prism-toolbar.min.css">
 		<link rel="stylesheet" href="css/theme.min.css">
+		<link rel="stylesheet" href="dist/css/cs-layout.min.css">
 		<link rel="icon" type="image/png" href="imgs/favicon.png">
 	</head>
-	<body class="bg-dark text-light">
+	<body class="bg-dark text-light" data-prismjs-copy-timeout="500">
 		<header class="position-fixed p-3 w-100 bg-secondary">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-auto px-0 pl-sm-3 text-nowrap text-left">
+					<div class="col-auto px-0 pl-sm-3 text-nowrap text-start">
 						<a href="index.html" class="lead text-truncate mb-0 text-light text-decoration-none">cs-layout.css</a>
 					</div>
-					<div class="col px-0 pr-sm-3 text-nowrap text-right">
+					<div class="col px-0 pr-sm-3 text-nowrap text-end">
 						<a href="https://github.com/wilnicho/cs-layout.css" target="_blank" class="btn btn-outline-dark">GitHub</a>
 						<a href="files/cs-layout.css.zip" download="" class="btn btn-outline-warning">Descargar</a>
 					</div>
@@ -29,7 +31,7 @@
 		<main class="pt-5">
 			<div class="container py-4">
 				<h1 class="mt-3 mb-1 text-center">cs-layout.css</h1>
-				<p class="h5 mb-3 text-center font-italic text-white-50">Complemento para diseño responsivo de cuadrículas.</p>
+				<p class="h5 mb-3 text-center font-italic text-white-50">Librería ligera basada en Flexbox para la construcción de interfaces de pantalla completa.</p>
 				<hr class="my-3 border-secondary">
 				<small class="d-block mb-3">
 					<span class="text-white-50">Proyecto mantenido por</span>
@@ -37,12 +39,13 @@
 				</small>
 				<div class="mb-3">
 					<h4 class="mb-3 text-white-50">¿Qué es cs-layout.css?</h4>
-					<p class="mb-3 text-justify">Es una complemento <code class="text-info">CSS</code> que ofrece un sistema de diseño responsivo basado en cuadrículas que facilita la creación de páginas web, el manejo de este complemento es similar al que <code class="text-info">Bootstrap</code> tiene con su sistema de grillas, con filas y columnas, pero con la ventaja de ser no sólo flexible con el ancho de la pantalla sino que también con el alto, trabajando así a pantalla completa.</p>
+					<p class="mb-3 text-justify">Es una librería <code class="text-info">CSS</code> ultra-ligera basada en <code class="text-info">Flexbox</code>, diseñada específicamente para la construcción de interfaces de pantalla completa <code class="text-info">Viewport-Locked UIs</code>. A diferencia de los frameworks tradicionales, ofrece un sistema bidireccional que permite un control total sobre el flujo horizontal y vertical, eliminando el scroll global de la ventana. Ideal para desarrolladores que buscan crear interfaces adaptables <code class="text-info">Desktop/Mobile</code> que se ajusten perfectamente al marco de la pantalla sin complicaciones de cálculos manuales de altura.</p>
 				</div>
 				<div class="mb-3">
-					<h4 class="mb-3 text-white-50">¿Cómo se usa?</h4>
-					<p class="mb-3 text-justify">Incluya dentro de su proyecto el archivo <code class="text-info">cs-layout.css</code> que debe descargar previamente.</p>
-					<pre class="mb-3 p-3"><code class="language-markup">&lt;link rel="stylesheet" href="cs-layout.css"&gt;</code></pre>
+					<h4 class="mb-3 text-white-50">¿Cómo se implementa?</h4>
+					<p class="mb-3 text-justify">Descarga e incluye el archivo en el <code class="text-info">&lt;head&gt;</code> de tu documento HTML:</p>
+					<pre class="mb-3 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;link rel="stylesheet" href="cs-layout.min.css"&gt;</code></pre>
+					<p>La librería utiliza tres componentes clave para construir cualquier interfaz:</p>
 					<table class="table table-striped table-bordered table-dark">
 						<thead>
 							<tr>
@@ -57,144 +60,165 @@
 						<tbody>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.layout-desktop</code>
+									<code class="text-warning">.g-container</code>
 								</td>
-								<td>El uso de esta clase indica que el comportamiento del diseño será responsivo.</td>
+								<td>El marco principal, por defecto ocupa todo el ancho y alto disponible.</td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.layout-mobile</code>
+									<code class="text-warning">.g-row</code>
+									<code class="text-warning">.g-col</code>
 								</td>
-								<td>El uso de esta clase indica que el comportamiento del diseño no será responsivo.</td>
+								<td>Define la dirección del flujo: vertical - filas u horizontal - columnas.</td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.grid-row</code>
+									<code class="text-warning">.g-cell</code>
 								</td>
-								<td>El uso de esta clase indica la creación de una fila.</td>
+								<td>El bloque de contenido, se expande automáticamente para llenar el espacio sobrante.</td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.grid-col</code>
+									<code class="text-warning">.g-cell-auto</code>
 								</td>
-								<td>El uso de esta clase indica la creación de una columna.</td>
+								<td>Bloque con tamaño fijo basado en su contenido, ideal para headers o footers.</td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.grid-cell</code>
+									<code class="text-warning">.g-static</code>
 								</td>
-								<td>El uso de esta clase indica la creación de una celda con un alto o un ancho flexible según el contenedor padre.</td>
+								<td>
+									<div>Modo Estático, desactiva el comportamiento responsivo para mantener el layout fijo en móviles, este modo no se hereda a las clases hijos asi que debe ser usado de la siguiente manera:</div>
+									<code>&lt;div class="g-container g-static"&gt;</code>
+									<br>
+									<code>&lt;div class="g-row g-static"&gt;</code>
+									<br>
+									<code>&lt;div class="g-col g-static"&gt;</code></td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<code class="text-warning">.grid-cell-auto</code>
+									<code class="text-warning">.g-240</code>
+									<code class="text-warning">.g-320</code>
+									<br>
+									<code class="text-warning">.g-480</code>
+									<code class="text-warning">.g-720</code>
 								</td>
-								<td>El uso de esta clase indica la creación de una celda con un alto o un ancho automático según el contenedor padre.</td>
+								<td>
+									<div>Altura fija de 240px, 320px, 480px y 720px, se usan para definir un alto mínimo para la interfaz antes de que aparezca el scroll, debe ser usado solo de la siguiente manera:</div>
+									<code>&lt;div class="g-container g-static g-480"&gt;</code>
+									<br>
+									<code>&lt;div class="g-container g-480"&gt;</code>
+								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
+				<div class="mb-3">
+					<h4 class="mb-3 text-white-50">Ejemplos prácticos</h4>
+					<p>A continuación, se presentan las estructuras más comunes resueltas con cs-layout. Copia y pega estas estructuras <code class="text-info">HTML</code> para iniciar tu proyecto.</p>
+				</div>
 				<p class="mb-3 text-justify">
 					<a href="layout-1.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 1</a>
+					<span>(Diseño con solo filas)</span>
 				</p>
 				<div class="row mb-0 ml-0">
 					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
-						<pre class="my-0 p-3"><code class="language-markup">&lt;div class="layout-desktop"&gt;
-	&lt;div class="grid-row"&gt;
-		&lt;div class="grid-cell"&gt;row # 1&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;row # 2&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;row # 3&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;row # 4&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;row # 5&lt;/div&gt;
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-row"&gt;
+		&lt;div class="g-cell"&gt;row # 1&lt;/div&gt;
+		&lt;div class="g-cell"&gt;row # 2&lt;/div&gt;
+		&lt;div class="g-cell"&gt;row # 3&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-1.html"></iframe>
+						<div class="ratio ratio-16x9">
+							<iframe src="example-1.html"></iframe>
 						</div>
 					</div>
 				</div>
 				<p class="mb-3 text-justify">
 					<a href="layout-2.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 2</a>
+					<span>(Diseño con solo columnas)</span>
 				</p>
-				<div class="row ml-0">
+				<div class="row mb-0 ml-0">
 					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
-						<pre class="my-0 p-3"><code class="language-markup">&lt;div class="layout-desktop"&gt;
-	&lt;div class="grid-col"&gt;
-		&lt;div class="grid-cell"&gt;col # 1&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;col # 2&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;col # 3&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;col # 4&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;col # 5&lt;/div&gt;
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-col"&gt;
+		&lt;div class="g-cell"&gt;row # 1&lt;/div&gt;
+		&lt;div class="g-cell"&gt;row # 2&lt;/div&gt;
+		&lt;div class="g-cell"&gt;row # 3&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-2.html"></iframe>
+						<div class="ratio ratio-16x9">
+							<iframe src="example-2.html"></iframe>
 						</div>
 					</div>
 				</div>
 				<p class="mb-3 text-justify">
 					<a href="layout-3.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 3</a>
+					<span>(Diseño básico de aplicación)</span>
 				</p>
-				<div class="row ml-0">
+				<div class="row mb-0 ml-0">
 					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
-						<pre class="my-0 p-3"><code class="language-markup">&lt;div class="layout-desktop"&gt;
-	&lt;div class="grid-row"&gt;
-		&lt;div class="grid-cell-auto"&gt;header&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;main&lt;/div&gt;
-		&lt;div class="grid-cell-auto"&gt;footer&lt;/div&gt;
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-row"&gt;
+		&lt;div class="g-cell-auto"&gt;header&lt;/div&gt;
+		&lt;div class="g-cell"&gt;main&lt;/div&gt;
+		&lt;div class="g-cell-auto"&gt;footer&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-3.html"></iframe>
+						<div class="ratio ratio-16x9">
+							<iframe src="example-3.html"></iframe>
 						</div>
 					</div>
 				</div>
 				<p class="mb-3 text-justify">
 					<a href="layout-4.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 4</a>
+					<span>(Diseño simple con menú lateral)</span>
 				</p>
 				<div class="row ml-0">
 					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
-						<pre class="my-0 p-3"><code class="language-markup">&lt;div class="layout-desktop"&gt;
-	&lt;div class="grid-row"&gt;
-		&lt;div class="grid-cell-auto"&gt;header&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;
-			&lt;div class="grid-col"&gt;
-				&lt;div class="grid-cell-auto"&gt;aside&lt;/div&gt;
-				&lt;div class="grid-cell"&gt;main&lt;/div&gt;
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-row"&gt;
+		&lt;div class="g-cell-auto"&gt;header&lt;/div&gt;
+		&lt;div class="g-cell"&gt;
+			&lt;div class="g-col"&gt;
+				&lt;div class="g-cell-auto"&gt;aside&lt;/div&gt;
+				&lt;div class="g-cell"&gt;main&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-		&lt;div class="grid-cell-auto"&gt;footer&lt;/div&gt;
+		&lt;div class="g-cell-auto"&gt;footer&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-4.html"></iframe>
+						<div class="ratio ratio-16x9">
+							<iframe src="example-4.html"></iframe>
 						</div>
 					</div>
 				</div>
 				<p class="mb-3 text-justify">
 					<a href="layout-5.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 5</a>
+					<span>(Diseño robusto con menú lateral y barra de navegación)</span>
 				</p>
 				<div class="row ml-0">
 					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
-						<pre class="my-0 p-3"><code class="language-markup">&lt;div class="layout-desktop"&gt;
-	&lt;div class="grid-row"&gt;
-		&lt;div class="grid-cell-auto"&gt;header&lt;/div&gt;
-		&lt;div class="grid-cell-auto"&gt;nav&lt;/div&gt;
-		&lt;div class="grid-cell"&gt;
-			&lt;div class="grid-col"&gt;
-				&lt;div class="grid-cell-auto"&gt;aside&lt;/div&gt;
-				&lt;div class="grid-cell"&gt;
-					&lt;div class="grid-row"&gt;
-						&lt;div class="grid-cell"&gt;main&lt;/div&gt;
-						&lt;div class="grid-cell-auto"&gt;footer&lt;/div&gt;
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-row"&gt;
+		&lt;div class="g-cell-auto"&gt;header&lt;/div&gt;
+		&lt;div class="g-cell-auto"&gt;nav&lt;/div&gt;
+		&lt;div class="g-cell"&gt;
+			&lt;div class="g-col"&gt;
+				&lt;div class="g-cell-auto"&gt;aside&lt;/div&gt;
+				&lt;div class="g-cell"&gt;
+					&lt;div class="g-row"&gt;
+						&lt;div class="g-cell"&gt;main&lt;/div&gt;
+						&lt;div class="g-cell-auto"&gt;footer&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -203,22 +227,65 @@
 &lt;/div&gt;</code></pre>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-5.html"></iframe>
+						<div class="ratio ratio-4x3">
+							<iframe src="example-5.html"></iframe>
 						</div>
 					</div>
 				</div>
-				<div class="mb-3">
-					<h4 class="mb-3 text-white-50">Integración con "jq-collapse.js"</h4>
-					<p class="mb-3 text-justify">Como habrá visto el complemento es muy fácil de usar y personalizar, además fue desarrollado pensando en la integración con <code><a href="https://wilnicho.github.io/jq-collapse.js" class="text-warning" target="_blank">jq-collapse.js</a></code> que hará mas interactiva la plantilla que diseñe, a continuación un ejemplo de su uso.</p>
+				<p class="mb-3 text-justify">
+					<a href="layout-5.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 6</a>
+					<span>(Diseño robusto anidado)</span>
+				</p>
+				<div class="row ml-0">
+					<div class="col-12 col-sm-6 col-lg-8 mb-3 pl-0">
+						<pre class="my-0 p-3" data-copy="Copiar" data-done="¡Copiado!"><code class="language-markup">&lt;div class="g-container"&gt;
+	&lt;div class="g-row"&gt;
+		&lt;div class="g-cell-auto header"&gt;header 1&lt;/div&gt;
+		&lt;div class="g-cell-auto nav"&gt;nav 1&lt;/div&gt;
+		&lt;div class="g-cell"&gt;
+			&lt;div class="g-col"&gt;
+				&lt;div class="g-cell-auto aside"&gt;aside 1&lt;/div&gt;
+				&lt;div class="g-cell"&gt;
+					&lt;div class="g-row"&gt;
+						&lt;div class="g-cell main" style="padding: 30px;"&gt;
+							&lt;div class="g-row"&gt;
+								&lt;div class="g-cell-auto header"&gt;header 2&lt;/div&gt;
+								&lt;div class="g-cell-auto nav"&gt;nav 2&lt;/div&gt;
+								&lt;div class="g-cell"&gt;
+									&lt;div class="g-col"&gt;
+										&lt;div class="g-cell-auto aside"&gt;aside 2&lt;/div&gt;
+										&lt;div class="g-cell"&gt;
+											&lt;div class="g-row"&gt;
+												&lt;div class="g-cell main"&gt;main 2&lt;/div&gt;
+												&lt;div class="g-cell-auto footer"&gt;footer 2&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div class="g-cell-auto footer"&gt;footer 1&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-4 mb-3 pl-0">
+						<div class="ratio ratio-4x3">
+							<iframe src="example-6.html"></iframe>
+						</div>
+					</div>
 				</div>
 				<p class="mb-3 text-justify">
-					<a href="layout-6.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 6</a>
+					<a href="layout-5.html" class="text-light text-decoration-none" target="_blank" data-title="Ver en pantalla completa">Ejemplo # 7</a>
+					<span>(Diseño robusto aplicable)</span>
 				</p>
 				<div class="row ml-0">
 					<div class="col-12 mb-3 pl-0">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe src="layout-6.html"></iframe>
+						<div class="ratio ratio-16x9">
+							<iframe src="example-7.html"></iframe>
 						</div>
 					</div>
 				</div>
@@ -231,18 +298,10 @@
 				</div>
 			</div>
 		</main>
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/popper.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/prism.min.js"></script>
+		<script type="text/javascript" src="js/prism-toolbar.min.js"></script>
+		<script type="text/javascript" src="js/prism-copy-to-clipboard.min.js"></script>
 		<script>
-		$(function () {
-			
-			$('[data-title]').tooltip({
-				placement: 'right'
-			});
-
-		});
 		</script>
 	</body>
 </html>

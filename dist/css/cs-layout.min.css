@@ -1,11 +1,7 @@
-/**
- * 
- * cs-layout v0.5
+/*!
+ * cs-layout v1.0.0 (https://wilnicho.github.io/cs-layout.css/)
+ * Copyright 2026 Wilfredo Nina Choquetarqui
+ * Licensed under MIT (https://github.com/wilnicho/cs-layout.css/blob/main/LICENSE)
  *
- * https://github.com/wilnicho/cs-layout.css
- * 
- * copyright (c) 2021 wilfredo nina choquetarqui
- * 
- */
-
-.layout-mobile{position:absolute;left:0;top:0;bottom:0;right:0}.layout-mobile .grid-col,.layout-mobile .grid-row{display:flex;flex:1 auto;height:100%}.layout-mobile .grid-row{flex-direction:column}.layout-mobile .grid-col{flex-direction:row}.layout-mobile .grid-col>.grid-cell-auto,.layout-mobile .grid-row>.grid-cell-auto{flex:0 auto}.layout-mobile .grid-col>.grid-cell,.layout-mobile .grid-row>.grid-cell{flex:1 auto}.layout-mobile .grid-col>.grid-cell,.layout-mobile .grid-row>.grid-cell{overflow-x:hidden;overflow-y:auto}.layout-mobile.mh-240{min-height:240px}.layout-mobile.mh-320{min-height:320px}.layout-mobile.mh-480{min-height:480px}.layout-mobile.mh-720{min-height:720px}@media(min-width:768px){.layout-desktop{position:absolute;left:0;top:0;bottom:0;right:0}.layout-desktop .grid-col,.layout-desktop .grid-row{display:flex;flex:1 auto;height:100%}.layout-desktop .grid-row{flex-direction:column}.layout-desktop .grid-col{flex-direction:row}.layout-desktop .grid-col>.grid-cell-auto,.layout-desktop .grid-row>.grid-cell-auto{flex:0 auto}.layout-desktop .grid-col>.grid-cell,.layout-desktop .grid-row>.grid-cell{flex:1 auto}.layout-desktop .grid-col>.grid-cell,.layout-desktop .grid-row>.grid-cell{overflow-x:hidden;overflow-y:auto}.layout-desktop.mh-240{min-height:240px}.layout-desktop.mh-320{min-height:320px}.layout-desktop.mh-480{min-height:480px}.layout-desktop.mh-720{min-height:720px}}
+ * Librería ligera basada en Flexbox para la construcción de interfaces de pantalla completa
+ */[class*=g-]{box-sizing:border-box}.g-container.g-static{position:absolute;inset:0}.g-container.g-static.g-240{min-height:240px}.g-container.g-static.g-320{min-height:320px}.g-container.g-static.g-480{min-height:480px}.g-container.g-static.g-720{min-height:720px}.g-col.g-static,.g-row.g-static{display:flex;flex:1 1 auto;height:100%}.g-row.g-static{flex-direction:column}.g-col.g-static{flex-direction:row}.g-col.g-static>.g-cell-auto,.g-row.g-static>.g-cell-auto{flex:0 0 auto}.g-col.g-static>.g-cell,.g-row.g-static>.g-cell{flex:1 1 auto;overflow-x:hidden;overflow-y:auto;min-width:0;min-height:0}@media (min-width:768px){.g-container{position:absolute;inset:0}.g-container.g-240{min-height:240px}.g-container.g-320{min-height:320px}.g-container.g-480{min-height:480px}.g-container.g-720{min-height:720px}.g-col,.g-row{display:flex;flex:1 1 auto;height:100%}.g-row{flex-direction:column}.g-col{flex-direction:row}.g-col>.g-cell-auto,.g-row>.g-cell-auto{flex:0 0 auto}.g-col>.g-cell,.g-row>.g-cell{flex:1 1 auto;overflow-x:hidden;overflow-y:auto;min-width:0;min-height:0}}
